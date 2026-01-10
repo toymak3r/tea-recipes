@@ -1,0 +1,252 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tea-recipes.org/schema/v1/tea-recipe.json",
+  "title": "Tea Recipe Schema",
+  "description": "Standardized schema for tea recipes compatible with IoT devices and cross-platform applications",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["id", "schemaVersion", "name", "teaType", "brewingSteps"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the recipe (UUID recommended)",
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "description": "Version of this schema specification",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "default": "1.0.0"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the tea recipe",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the tea and its characteristics",
+      "maxLength": 500
+    },
+    "teaType": {
+      "type": "string",
+      "description": "Type of tea",
+      "enum": [
+        "black",
+        "green",
+        "white",
+        "oolong",
+        "pu-erh",
+        "herbal",
+        "fruit",
+        "rooibos",
+        "blend",
+        "other"
+      ]
+    },
+    "origin": {
+      "type": "string",
+      "description": "Geographic origin of the tea",
+      "maxLength": 100
+    },
+    "servings": {
+      "type": "object",
+      "description": "Number of servings this recipe yields",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 1
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["cups", "ml", "oz"]
+        }
+      },
+      "required": ["amount", "unit"]
+    },
+    "ingredients": {
+      "type": "array",
+      "description": "List of ingredients needed",
+      "items": {
+        "type": "object",
+        "required": ["name", "amount", "unit"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Ingredient name"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Quantity of ingredient",
+            "minimum": 0
+          },
+          "unit": {
+            "type": "string",
+            "description": "Unit of measurement",
+            "enum": ["g", "tsp", "tbsp", "ml", "oz", "pieces", "bags"]
+          },
+          "optional": {
+            "type": "boolean",
+            "description": "Whether this ingredient is optional",
+            "default": false
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "brewingSteps": {
+      "type": "array",
+      "description": "Sequential brewing steps for IoT devices",
+      "items": {
+        "type": "object",
+        "required": ["step", "action"],
+        "properties": {
+          "step": {
+            "type": "integer",
+            "description": "Step number in sequence",
+            "minimum": 1
+          },
+          "action": {
+            "type": "string",
+            "description": "Action to perform",
+            "enum": [
+              "heat_water",
+              "add_tea",
+              "steep",
+              "remove_tea",
+              "add_ingredient",
+              "stir",
+              "wait",
+              "serve"
+            ]
+          },
+          "temperature": {
+            "type": "object",
+            "description": "Target temperature for this step",
+            "properties": {
+              "value": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "unit": {
+                "type": "string",
+                "enum": ["celsius", "fahrenheit"],
+                "default": "celsius"
+              }
+            },
+            "required": ["value", "unit"]
+          },
+          "duration": {
+            "type": "object",
+            "description": "Duration for this step",
+            "properties": {
+              "value": {
+                "type": "number",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string",
+                "enum": ["seconds", "minutes"],
+                "default": "seconds"
+              }
+            },
+            "required": ["value", "unit"]
+          },
+          "ingredient": {
+            "type": "string",
+            "description": "Reference to ingredient name if applicable"
+          },
+          "instruction": {
+            "type": "string",
+            "description": "Human-readable instruction for this step",
+            "maxLength": 200
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the recipe",
+      "properties": {
+        "author": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of creation"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of last modification"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced"]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "caffeineLevel": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high"]
+        }
+      }
+    },
+    "nutritionalInfo": {
+      "type": "object",
+      "description": "Nutritional information per serving",
+      "properties": {
+        "calories": {
+          "type": "number",
+          "minimum": 0
+        },
+        "caffeine": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "unit": {
+              "type": "string",
+              "enum": ["mg"]
+            }
+          }
+        }
+      }
+    },
+    "deviceCompatibility": {
+      "type": "object",
+      "description": "Device compatibility information",
+      "properties": {
+        "minSchemaVersion": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "requiredFeatures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "temperature_control",
+              "timer",
+              "auto_dispense",
+              "multi_step",
+              "steep_reminder"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

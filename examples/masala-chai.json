@@ -1,0 +1,197 @@
+{
+  "id": "masala-chai-001",
+  "schemaVersion": "1.0.0",
+  "name": "Authentic Masala Chai",
+  "description": "Traditional Indian spiced tea with milk, featuring a rich blend of aromatic spices",
+  "teaType": "blend",
+  "origin": "India",
+  "servings": {
+    "amount": 2,
+    "unit": "cups"
+  },
+  "ingredients": [
+    {
+      "name": "black tea leaves",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "name": "water",
+      "amount": 250,
+      "unit": "ml"
+    },
+    {
+      "name": "whole milk",
+      "amount": 250,
+      "unit": "ml"
+    },
+    {
+      "name": "sugar",
+      "amount": 2,
+      "unit": "tbsp"
+    },
+    {
+      "name": "fresh ginger",
+      "amount": 5,
+      "unit": "g"
+    },
+    {
+      "name": "cardamom pods",
+      "amount": 4,
+      "unit": "pieces"
+    },
+    {
+      "name": "cinnamon stick",
+      "amount": 1,
+      "unit": "pieces"
+    },
+    {
+      "name": "black peppercorns",
+      "amount": 4,
+      "unit": "pieces"
+    },
+    {
+      "name": "cloves",
+      "amount": 3,
+      "unit": "pieces"
+    }
+  ],
+  "brewingSteps": [
+    {
+      "step": 1,
+      "action": "add_ingredient",
+      "ingredient": "fresh ginger",
+      "instruction": "Crush and add ginger to pot"
+    },
+    {
+      "step": 2,
+      "action": "add_ingredient",
+      "ingredient": "cardamom pods",
+      "instruction": "Crush and add cardamom pods"
+    },
+    {
+      "step": 3,
+      "action": "add_ingredient",
+      "ingredient": "cinnamon stick",
+      "instruction": "Add cinnamon stick"
+    },
+    {
+      "step": 4,
+      "action": "add_ingredient",
+      "ingredient": "black peppercorns",
+      "instruction": "Add black peppercorns"
+    },
+    {
+      "step": 5,
+      "action": "add_ingredient",
+      "ingredient": "cloves",
+      "instruction": "Add cloves"
+    },
+    {
+      "step": 6,
+      "action": "add_ingredient",
+      "ingredient": "water",
+      "instruction": "Add water to the pot"
+    },
+    {
+      "step": 7,
+      "action": "heat_water",
+      "temperature": {
+        "value": 100,
+        "unit": "celsius"
+      },
+      "duration": {
+        "value": 300,
+        "unit": "seconds"
+      },
+      "instruction": "Bring spices and water to a boil, simmer for 5 minutes"
+    },
+    {
+      "step": 8,
+      "action": "add_tea",
+      "ingredient": "black tea leaves",
+      "instruction": "Add black tea leaves"
+    },
+    {
+      "step": 9,
+      "action": "steep",
+      "temperature": {
+        "value": 95,
+        "unit": "celsius"
+      },
+      "duration": {
+        "value": 120,
+        "unit": "seconds"
+      },
+      "instruction": "Simmer for 2 minutes"
+    },
+    {
+      "step": 10,
+      "action": "add_ingredient",
+      "ingredient": "whole milk",
+      "instruction": "Add milk"
+    },
+    {
+      "step": 11,
+      "action": "heat_water",
+      "temperature": {
+        "value": 90,
+        "unit": "celsius"
+      },
+      "duration": {
+        "value": 180,
+        "unit": "seconds"
+      },
+      "instruction": "Heat until almost boiling, about 3 minutes"
+    },
+    {
+      "step": 12,
+      "action": "add_ingredient",
+      "ingredient": "sugar",
+      "instruction": "Add sugar and stir"
+    },
+    {
+      "step": 13,
+      "action": "stir",
+      "duration": {
+        "value": 10,
+        "unit": "seconds"
+      },
+      "instruction": "Stir well to dissolve sugar"
+    },
+    {
+      "step": 14,
+      "action": "remove_tea",
+      "instruction": "Strain into cups"
+    },
+    {
+      "step": 15,
+      "action": "serve",
+      "instruction": "Serve hot immediately"
+    }
+  ],
+  "metadata": {
+    "author": "Indian Tea Masters",
+    "created": "2026-01-10T14:40:00Z",
+    "modified": "2026-01-10T14:40:00Z",
+    "difficulty": "intermediate",
+    "tags": ["indian", "spiced", "milk-tea", "warming", "masala"],
+    "caffeineLevel": "high"
+  },
+  "nutritionalInfo": {
+    "calories": 120,
+    "caffeine": {
+      "amount": 50,
+      "unit": "mg"
+    }
+  },
+  "deviceCompatibility": {
+    "minSchemaVersion": "1.0.0",
+    "requiredFeatures": [
+      "temperature_control",
+      "timer",
+      "multi_step",
+      "auto_dispense"
+    ]
+  }
+}
