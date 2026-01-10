@@ -1,0 +1,124 @@
+{
+  "id": "earl-grey-black-tea-001",
+  "schemaVersion": "1.0.0",
+  "name": "Traditional Earl Grey",
+  "description": "Classic black tea infused with bergamot oil, offering a citrusy aroma and robust flavor",
+  "teaType": "black",
+  "origin": "England",
+  "servings": {
+    "amount": 250,
+    "unit": "ml"
+  },
+  "ingredients": [
+    {
+      "name": "earl grey tea",
+      "amount": 1,
+      "unit": "bags"
+    },
+    {
+      "name": "filtered water",
+      "amount": 250,
+      "unit": "ml"
+    },
+    {
+      "name": "milk",
+      "amount": 30,
+      "unit": "ml",
+      "optional": true
+    },
+    {
+      "name": "honey",
+      "amount": 1,
+      "unit": "tsp",
+      "optional": true
+    }
+  ],
+  "brewingSteps": [
+    {
+      "step": 1,
+      "action": "heat_water",
+      "temperature": {
+        "value": 95,
+        "unit": "celsius"
+      },
+      "duration": {
+        "value": 180,
+        "unit": "seconds"
+      },
+      "instruction": "Heat water to 95°C (203°F)"
+    },
+    {
+      "step": 2,
+      "action": "add_tea",
+      "ingredient": "earl grey tea",
+      "instruction": "Place tea bag in cup"
+    },
+    {
+      "step": 3,
+      "action": "steep",
+      "temperature": {
+        "value": 95,
+        "unit": "celsius"
+      },
+      "duration": {
+        "value": 180,
+        "unit": "seconds"
+      },
+      "instruction": "Steep for 3 minutes"
+    },
+    {
+      "step": 4,
+      "action": "remove_tea",
+      "instruction": "Remove tea bag"
+    },
+    {
+      "step": 5,
+      "action": "add_ingredient",
+      "ingredient": "milk",
+      "instruction": "Add milk if desired (optional)"
+    },
+    {
+      "step": 6,
+      "action": "add_ingredient",
+      "ingredient": "honey",
+      "instruction": "Add honey if desired (optional)"
+    },
+    {
+      "step": 7,
+      "action": "stir",
+      "duration": {
+        "value": 5,
+        "unit": "seconds"
+      },
+      "instruction": "Stir gently"
+    },
+    {
+      "step": 8,
+      "action": "serve",
+      "instruction": "Serve hot"
+    }
+  ],
+  "metadata": {
+    "author": "British Tea Council",
+    "created": "2026-01-10T14:35:00Z",
+    "modified": "2026-01-10T14:35:00Z",
+    "difficulty": "beginner",
+    "tags": ["british", "black-tea", "bergamot", "classic"],
+    "caffeineLevel": "high"
+  },
+  "nutritionalInfo": {
+    "calories": 2,
+    "caffeine": {
+      "amount": 47,
+      "unit": "mg"
+    }
+  },
+  "deviceCompatibility": {
+    "minSchemaVersion": "1.0.0",
+    "requiredFeatures": [
+      "temperature_control",
+      "timer",
+      "steep_reminder"
+    ]
+  }
+}

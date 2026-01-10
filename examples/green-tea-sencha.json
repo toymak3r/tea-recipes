@@ -1,0 +1,90 @@
+{
+  "id": "green-tea-sencha-001",
+  "schemaVersion": "1.0.0",
+  "name": "Classic Japanese Sencha",
+  "description": "A refreshing green tea with a balanced umami flavor and gentle sweetness",
+  "teaType": "green",
+  "origin": "Japan",
+  "servings": {
+    "amount": 200,
+    "unit": "ml"
+  },
+  "ingredients": [
+    {
+      "name": "sencha green tea leaves",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "name": "filtered water",
+      "amount": 200,
+      "unit": "ml"
+    }
+  ],
+  "brewingSteps": [
+    {
+      "step": 1,
+      "action": "heat_water",
+      "temperature": {
+        "value": 75,
+        "unit": "celsius"
+      },
+      "duration": {
+        "value": 120,
+        "unit": "seconds"
+      },
+      "instruction": "Heat water to 75°C (167°F)"
+    },
+    {
+      "step": 2,
+      "action": "add_tea",
+      "ingredient": "sencha green tea leaves",
+      "instruction": "Add 2 tsp of sencha tea leaves to teapot"
+    },
+    {
+      "step": 3,
+      "action": "steep",
+      "temperature": {
+        "value": 75,
+        "unit": "celsius"
+      },
+      "duration": {
+        "value": 60,
+        "unit": "seconds"
+      },
+      "instruction": "Steep for 1 minute"
+    },
+    {
+      "step": 4,
+      "action": "remove_tea",
+      "instruction": "Remove tea leaves or strain into cup"
+    },
+    {
+      "step": 5,
+      "action": "serve",
+      "instruction": "Serve immediately"
+    }
+  ],
+  "metadata": {
+    "author": "Tea Masters Association",
+    "created": "2026-01-10T14:30:00Z",
+    "modified": "2026-01-10T14:30:00Z",
+    "difficulty": "beginner",
+    "tags": ["japanese", "green-tea", "refreshing", "umami"],
+    "caffeineLevel": "medium"
+  },
+  "nutritionalInfo": {
+    "calories": 2,
+    "caffeine": {
+      "amount": 25,
+      "unit": "mg"
+    }
+  },
+  "deviceCompatibility": {
+    "minSchemaVersion": "1.0.0",
+    "requiredFeatures": [
+      "temperature_control",
+      "timer"
+    ]
+  }
+}
